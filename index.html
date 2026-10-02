@@ -1,0 +1,19 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Terraform AWS high-availability web application project portfolio"><title>HA Web App — Terraform Portfolio</title><link rel="stylesheet" href="styles.css"></head><body>
+<nav class="nav"><div class="wrap"><a class="brand" href="index.html">HA / Terraform</a><div class="navlinks"><a href="#architecture">Architecture</a><a href="#resources">Resources</a><a href="project.html">Case Study</a></div></div></nav>
+<main><header class="hero"><div class="wrap"><div class="eyebrow">AWS Infrastructure · Terraform</div><h1>Production-Grade Highly Available Web Application</h1><p class="byline">Built By Temitayo Odutola</p><p class="lead">A multi-AZ AWS architecture provisioned with Terraform, separating public and private networking while adding load balancing, auto scaling, bastion access, and a highly available MySQL database.</p><div class="actions"><a class="btn primary" href="project.html">View case study</a><a class="btn" href="#architecture">Explore architecture</a></div></div></header>
+<section class="section" id="architecture"><div class="wrap arch"><div><div class="eyebrow">Architecture</div><h2>Designed for availability and isolation.</h2><p class="sub">Internet traffic enters through an Application Load Balancer in public subnets. Application instances run in private subnets across two availability zones, with RDS configured for Multi-AZ deployment.</p><div class="tags"><span class="tag">eu-west-2</span><span class="tag">2 Availability Zones</span><span class="tag">Private App Tier</span><span class="tag">Multi-AZ RDS</span></div></div><div class="diagram"><pre>Internet
+   │
+   ▼
+Application Load Balancer
+   │
+   ├───────────────┐
+   ▼               ▼
+EC2 · Private AZ1  EC2 · Private AZ2
+   └───────┬───────┘
+           ▼
+      RDS · Multi-AZ
+
+Bastion Host · Public Subnet · SSH</pre></div></div></section>
+<section class="section" id="resources"><div class="wrap"><div class="eyebrow">AWS Resources</div><h2>Core infrastructure</h2><p class="sub">The Terraform configuration provisions the network, routing, compute, database, access path, and traffic distribution required by the project.</p><div class="grid"><div class="card"><h3>Network</h3><p>VPC, two public subnets, two private subnets, Internet Gateway, NAT Gateway, and route tables.</p></div><div class="card"><h3>Compute & traffic</h3><p>Application Load Balancer, target group, listener, launch template, and Auto Scaling Group.</p></div><div class="card"><h3>Data & access</h3><p>Multi-AZ MySQL RDS, database subnet group, security groups, and a bastion host for SSH entry.</p></div></div></div></section>
+<section class="section"><div class="wrap"><div class="eyebrow">Project outcomes</div><h2>What the setup demonstrates</h2><div class="two"><ul class="list"><li>Multi-AZ fault tolerance</li><li>No direct public access to app servers</li><li>Secure SSH path through a bastion host</li></ul><ul class="list"><li>Auto scaling under load</li><li>Database failover</li><li>Internet and private routing separation</li></ul></div><div class="actions"><a class="btn primary" href="project.html">Read implementation & takeaways</a></div></div></section></main>
+<footer><div class="wrap"><span class="kicker"><span class="dot"></span>Terraform · AWS · Highly Available Web Application</span></div></footer></body></html>
